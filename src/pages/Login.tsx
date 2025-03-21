@@ -24,7 +24,7 @@ const Login = () => {
     console.log(data);
     const toastId = toast.loading('Logging in');
 
-    try {
+    
       const userInfo = {
         id: data.userId,
         password: data.password,
@@ -34,7 +34,7 @@ const Login = () => {
       const user = verifyToken(res.data.accessToken) as TUser;
       dispatch(setUser({ user: user, token: res.data.accessToken }));
       toast.success('Logged in', { id: toastId, duration: 2000 });
-
+try {
       if (res.data.needsPasswordChange) {
         navigate(`/change-password`);
       } else {
